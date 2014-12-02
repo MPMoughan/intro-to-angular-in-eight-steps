@@ -1,10 +1,48 @@
-<html>
+<html ng-app>
 <head>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
 </head>
+<style>
+
+.fancy {
+  color:green;
+  line-height: 50px;
+  font-size: 40px;
+  width: 200px;
+}
+
+</style>
+
 <body>
 
-<div class="container">
-  <img src="http://i.imgur.com/teSXnkY.jpg" />
+<div ng-class="name" class="container">
+
+  Loops :
+  <div ng-init="names=['Yoni','James', 'Yin' ,'Matt','Tim','Joe', 'Jack', 'Pete', 'Melody', 'David', 'Jacob']">
+
+  <p> Search : <input type="text" ng-model="query">
+  <ul>
+    <span ng-repeat="name in names | filter: query">
+    <li> {{ name | lowercase }} </li>
+  </ul>
+
+
+  <hr>
+  <div ng-class="name"> Data-binding - Check this out: <input type="text" ng-model="name"/> {{ name }}
+  </div>
+</div>
+
+  <hr>
+  <p>Angular Expressions:
+  <ul>
+  <li> Date Test : <input type="text" ng-model="theDate"> {{ theDate | date  }}
+  <li> 1 + 3 = {{ 1 + 3 }}
+  <li> My Balance is {{ 1000000 | currency }}
+  <li> foo == bar?: {{ "foo" == "bar" }}
+    <li> foo == foo?: {{ "foo" == "foo" }}
+  Checked? : <input ng-hide="checked" type=checkbox ng-checked = "checked"
+  </ul>
+
 </div>
 
 </body>
